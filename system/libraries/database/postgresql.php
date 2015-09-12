@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: IT_Support
- * Date: 6/29/2015
- * Time: 10:15 AM
- */
 
 class Lib_PostgreSQL extends Database{
 

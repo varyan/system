@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: IT_Support
- * Date: 6/29/2015
- * Time: 1:24 PM
- */
 
 class Lib_SQLite extends Database{
 

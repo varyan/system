@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: IT_Support
- * Date: 6/27/2015
- * Time: 3:30 PM
- */
 
 abstract class Database {
     /**

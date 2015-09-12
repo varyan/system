@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: IT_Support
- * Date: 6/29/2015
- * Time: 2:35 PM
- */
 
 class Lib_Sql extends Database{
 

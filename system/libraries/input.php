@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: VarYan
- * Date: 08.07.2015
- * Time: 23:55
- */
 
 class Input {
     private $data;

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: VarYan
- * Date: 01.07.2015
- * Time: 23:49
- */
 
 class Validate {
     private $status = 'success',$message = '';
