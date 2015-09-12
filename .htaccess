@@ -1,0 +1,8 @@
+RewriteEngine On
+Options -Indexes
+AddHandler application/x-httpd-php .html .php .vs .vw .cl .md .lb
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|css|js|txt|cs)$
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
