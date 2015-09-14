@@ -41,7 +41,6 @@ abstract class Database {
         }else {
 
             $config = get_config('database');
-
             $this->drive    = $config['drive'];
             $this->host     = $config['host'];
             $this->port     = $config['port'];
@@ -133,7 +132,7 @@ abstract class Database {
      * @return object Database
      * */
     public function select($string = "*",$type = ""){
-        $this->select .= " SELECT ".$this->escape($type)." ".$this->escape($string)." ";
+        $this->select .= " SELECT ".strtoupper($this->escape($type))." ".$this->escape($string)." ";
         return $this;
     }
     /**
@@ -143,8 +142,8 @@ abstract class Database {
      * @return object Database
      * */
     public function from($table){
-        $this->from .= " FROM ".$this->escape($table)." ";
         $this->table = $this->escape($table);
+        $this->from .= " FROM ".$this->table." ";
         return $this;
     }
     /**
@@ -159,8 +158,8 @@ abstract class Database {
         if($value_if_row != null){
             $this->where .= $this->escape($row_or_array)." = '".$this->escape($value_if_row)."' ";
         }else{$i = 0;
-            foreach($row_or_array as $row=>$value){$i++;
-                $this->where .= $this->escape($row)." = '".$this->escape($value)."'";
+            foreach($row_or_array as $row => $value){$i++;
+                $this->where .= $this->table.''.$this->escape($row)." = '".$this->escape($value)."'";
                 if($i < count($row_or_array))
                     $this->where .= " and ";
             }
@@ -181,8 +180,8 @@ abstract class Database {
         if(is_string($string_or_array)) {
             $this->join .= $this->escape($string_or_array) . " ";
         }else{$i = 0;
-            foreach($string_or_array as $tb1_row=>$tb2_row){$i++;
-                $this->join .= $this->escape($this->table).".".$this->escape($tb1_row)." = ".$this->escape($table).".".$this->escape($tb2_row);
+            foreach($string_or_array as $tb1_row => $tb2_row){$i++;
+                $this->join .= $this->table.".".$this->escape($tb1_row)." = ".$this->escape($table).".".$this->escape($tb2_row);
                 if($i < count($string_or_array)){
                     $this->join .= " and ";
                 }
