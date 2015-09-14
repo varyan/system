@@ -1,13 +1,21 @@
 <?php
-
+defined('SYS_PATH') OR exit('No direct script access allowed');
 
 class Welcome extends Controller{
-
+    /*
+     *---------------------------------------------------------------
+     * _constructor method
+     *---------------------------------------------------------------
+     */
     public function __construct(){
         parent::__construct();
-        $this->model('user_model');
     }
-
+    /*
+     *---------------------------------------------------------------
+     * page method
+     * @param string $page (default value 'index')
+     *---------------------------------------------------------------
+     */
     public function page($page = 'index'){
 
         if(!file_exists(VIEW_PATH.'pages/'.$page.EXT)){
@@ -15,8 +23,9 @@ class Welcome extends Controller{
         }
 
         $this->args['title'] = 'Welcome';
-        $this->args['user'] = $this->user_model->get(1)[0];
 
+        $this->view('includes/header',$this->args);
         $this->view('pages/'.$page,$this->args);
+        $this->view('includes/footer',$this->args);
     }
 }

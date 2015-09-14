@@ -8,12 +8,6 @@
                 <h4>Search Our Website</h4>
                 <div>Can't find what you need?</div>
                 <div class="m-bottom-md">Try searching for the page here</div>
-                <div class="input-group m-bottom-md">
-                    <input type="text" class="form-control input-sm" placeholder="search here...">
-						<span class="input-group-btn">
-							<button class="btn btn-default btn-sm" type="button"><i class="fa fa-search"></i></button>
-						</span>
-                </div><!-- /input-group -->
                 <a class="btn btn-success m-bottom-sm" href="index.html"><i class="fa fa-home"></i> Back to Dashboard</a>
                 <a class="btn btn-success m-bottom-sm" href="contact.html"><i class="fa fa-envelope"></i> Contact Us</a>
             </div><!-- /.col -->
