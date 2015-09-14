@@ -1,4 +1,5 @@
 <?php
+defined('SYS_PATH') OR exit('No direct script access allowed');
 
 class Lib_MySQLi extends Database{
 

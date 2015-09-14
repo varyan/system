@@ -77,7 +77,51 @@ class Controller{
     * library method
     *---------------------------------------------------------------
     */
-    protected function library($file,$args = []){
-        $this->{$file} = new $file($args);
+    protected function library($file, $args = []){
+        if(is_dir(APP_PATH.'libraries')){
+            if(file_exists(APP_PATH.'libraries/'.$file.EXT)){
+                if(is_dir(APP_PATH.'libraries/'.$file)){
+                    $config = get_config($file);
+                    require_once APP_PATH.'libraries/'.$file.EXT;
+                    $class = ($args != null) ? $args['drive'] : $config['drive'];
+                    if(file_exists(APP_PATH.'libraries/'.$file.'/'.$class.EXT)){
+                        require_once APP_PATH.'libraries/'.$file.'/'.$class.EXT;
+                        $class = "Lib_".ucfirst($class);
+                        $this->$file = new $class($args);
+                    }
+                }else {
+                    require_once APP_PATH . 'libraries/' . $file . EXT;
+                    $this->$file = new $file($args);
+                }
+            }else{
+                if(is_dir(SYS_PATH.'libraries/'.$file)){
+                    $config = get_config($file);
+                    require_once SYS_PATH.'libraries/'.$file.EXT;
+                    $class = ($args != null) ? $args['drive'] : $config['drive'];
+                    if(file_exists(SYS_PATH.'libraries/'.$file.'/'.$class.EXT)){
+                        require_once SYS_PATH.'libraries/'.$file.'/'.$class.EXT;
+                        $class = "Lib_".ucfirst($class);
+                        $this->$file = new $class($args);
+                    }
+                }else {
+                    require_once SYS_PATH . 'libraries/' . $file . EXT;
+                    $this->$file = new $file($args);
+                }
+            }
+        }else{
+            if(is_dir(SYS_PATH.'libraries/'.$file)){
+                $config = get_config($file);
+                require SYS_PATH.'libraries/'.$file.EXT;
+                $class = ($args != null) ? $args['drive'] : $config['drive'];
+                if(file_exists(SYS_PATH.'libraries/'.$file.'/'.$class.EXT)){
+                    require SYS_PATH.'libraries/'.$file.'/'.$class.EXT;
+                    $class = "Lib_".ucfirst($class);
+                    $this->$file = new $class($args);
+                }
+            }else {
+                require SYS_PATH . 'libraries/' . $file . EXT;
+                $this->$file = new $file($args);
+            }
+        }
     }
 }

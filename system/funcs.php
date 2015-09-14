@@ -10,11 +10,14 @@ defined('SYS_PATH') OR exit('No direct script access allowed');
 if(!function_exists('__autoload')){
     function __autoload($class){
         $path = SYS_PATH;
-        if(!file_exists($path.$class.EXT))$path = APP_PATH.'controllers/';
-        if(!file_exists($path.$class.EXT))$path = APP_PATH.'models/';
-        if(!file_exists($path.$class.EXT))$path = APP_PATH.'libraries/';
-        if(!file_exists($path.$class.EXT))$path = SYS_PATH.'libraries/';
-        if(!file_exists($path.$class.EXT))$path = APP_PATH.'views/';
+        if(!file_exists($path.$class.EXT))
+            $path = SYS_PATH.'libraries/';
+        if(!file_exists($path.$class.EXT))
+            $path = APP_PATH.'controllers/';
+        if(!file_exists($path.$class.EXT))
+            $path = APP_PATH.'models/';
+        if(!file_exists($path.$class.EXT))
+            $path = APP_PATH.'libraries/';
         require $path.$class.EXT;
     }
 }

@@ -1,5 +1,8 @@
 <?php
 
+namespace System\Library\Database;
+defined('SYS_PATH') OR exit('No direct script access allowed');
+
 class Lib_Mongo extends Database{
 
     public function connect(){

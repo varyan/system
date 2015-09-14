@@ -29,7 +29,7 @@ class Rout{
     * string $controller variable
     *---------------------------------------------------------------
     */
-    private static $controller = '';
+    private static $controller = 'error';
     /*
     *---------------------------------------------------------------
     * string $method variable (default value 'index')
@@ -48,7 +48,7 @@ class Rout{
     *---------------------------------------------------------------
     */
     static public function init(){
-        self::$url = (isset($_GET['url'])) ? $_GET['url'] : '';
+        self::$url = (isset($_GET['url'])) ? trim(stripslashes($_GET['url'])) : '';
         self::$routes = get_config('route');
 
         if(self::by_key() === false){
