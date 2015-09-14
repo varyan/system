@@ -39,4 +39,10 @@ class Lib_Sql extends Database{
         }
         return $result;
     }
+    /**
+     *
+     * */
+    public function num_rows(){
+        return mssql_num_rows($this->result);
+    }
 }

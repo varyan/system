@@ -36,4 +36,10 @@ class Lib_SQLite extends Database{
         }
         return $result;
     }
+    /**
+     *
+     * */
+    public function num_rows(){
+        return count($this->result());
+    }
 }

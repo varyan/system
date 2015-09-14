@@ -61,7 +61,7 @@ class Controller{
             }
             require_once $view;
         }else{
-            exit('The file <b>'.$file.'</b> dose`nt exists in your <b>'.APP_PATH.'views</b> folder');
+            show_error();
         }
     }
     /*

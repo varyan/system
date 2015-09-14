@@ -57,7 +57,10 @@ class Lib_MySQL extends Database{
                             $this->group.$this->order.$this->limit;
 
         $this->result = mysql_query($this->query,$this->connection);
-        $this->last_id = mysql_insert_id($this->connection);
+        $this->inserted_id = mysql_insert_id($this->connection);
+        $this->error = mysql_error($this->connection);
+        $this->affected_rows = mysql_affected_rows($this->connection);
+
 
         $this->select = '';$this->insert = '';$this->update = '';$this->delete = '';$this->create = '';
         $this->from = '';$this->join = '';$this->where = '';$this->group = '';$this->order = '';$this->limit = '';
@@ -78,5 +81,25 @@ class Lib_MySQL extends Database{
             $result[] = ($type == 'object') ? (object)$row : $row;
         }
         return $result;
+    }
+    /**
+     *
+     * */
+    public function num_rows(){
+        return mysql_num_rows($this->result);
+    }
+    /**
+     *
+     * */
+    public function affected_rows(){
+        return ($this->error() !== '')
+            ? mysql_affected_rows($this->connection)
+            : (!$this->error());
+    }
+    /**
+     *
+     * */
+    public function error(){
+        return mysql_error($this->connection);
     }
 }

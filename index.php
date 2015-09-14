@@ -30,6 +30,12 @@ $system_path = 'system';
 $app_folder = 'app';
 
 /*
+ *---------------------------------------------------------------
+ * APP FOLDER NAME
+ *---------------------------------------------------------------
+ */
+$view_folder = 'views';
+/*
  * ---------------------------------------------------------------
  *  Resolve the system path for increased reliability
  * ---------------------------------------------------------------
@@ -65,7 +71,7 @@ define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 define('SYS_PATH', str_replace('\\', '/', $system_path));
 define('SYS_DIR', trim(strrchr(trim(SYS_PATH, '/'), '/'), '/'));
 
-// The path to the "application" folder
+// The path to the "app" folder
 if (is_dir($app_folder)) {
     if (($_temp = realpath($app_folder)) !== FALSE) {
         $app_folder = $_temp;
@@ -77,12 +83,42 @@ else
 {
     if ( ! is_dir(SYS_PATH.$app_folder.DIRECTORY_SEPARATOR)) {
         header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-        echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+        echo 'Your app folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
         exit(3); // EXIT_CONFIG
     }
 
     define('APP_PATH', SYS_PATH.$app_folder.DIRECTORY_SEPARATOR);
 }
+
+// The path to the "views" folder
+if ( ! is_dir($view_folder))
+{
+    if ( ! empty($view_folder) && is_dir(APP_PATH.$view_folder.DIRECTORY_SEPARATOR))
+    {
+        $view_folder = APP_PATH.$view_folder;
+    }
+    elseif ( ! is_dir(APP_PATH.'views'.DIRECTORY_SEPARATOR))
+    {
+        header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+        echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+        exit(3); // EXIT_CONFIG
+    }
+    else
+    {
+        $view_folder = APP_PATH.'views';
+    }
+}
+
+if (($_temp = realpath($view_folder)) !== FALSE)
+{
+    $view_folder = $_temp.DIRECTORY_SEPARATOR;
+}
+else
+{
+    $view_folder = rtrim($view_folder, '/\\').DIRECTORY_SEPARATOR;
+}
+
+define('VIEW_PATH', $view_folder);
 
 /*
  * --------------------------------------------------------------------

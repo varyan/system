@@ -5,24 +5,17 @@ class Welcome extends Controller{
 
     public function __construct(){
         parent::__construct();
-        $this->model('main_model');
-        $this->library('database');
+        $this->model('user_model');
     }
 
     public function page($page = 'index'){
-        $this->args['title'] = 'Welcome';
-        $user = $this->database ->select('*','distinct')
-                                ->where(array(
-                                    'users.role'=>'user'
-                                ))
-                                ->order('users.id','desc')
-                                ->limit(0,1)
-                                ->join('user_info','users.id = user_info.user_id')
-                                ->from('users')
-                                ->query()
-                                ->result();
 
-        debug_print($user);
+        if(!file_exists(VIEW_PATH.'pages/'.$page.EXT)){
+            show_error();
+        }
+
+        $this->args['title'] = 'Welcome';
+        $this->args['user'] = $this->user_model->get(1)[0];
 
         $this->view('pages/'.$page,$this->args);
     }

@@ -41,6 +41,43 @@ if(!function_exists('get_config')){
 }
 /*
  *---------------------------------------------------------------
+ * get template function
+ *---------------------------------------------------------------
+ */
+if(!function_exists('template')){
+    function template(){
+        $template = get_config('config')['template'];
+        return $template;
+    }
+}
+/*
+ *---------------------------------------------------------------
+ * get assets function
+ *---------------------------------------------------------------
+ */
+if(!function_exists('assets')){
+    function assets($inner_file){
+        $assets = get_config('config')['assets'];
+        return $assets.$inner_file;
+    }
+}
+/*
+ *---------------------------------------------------------------
+ * show_error function
+ * @param string $handler (default value '404')
+ *---------------------------------------------------------------
+ */
+if(!function_exists('show_error')){
+    function show_error($handler = '404'){
+        $template = template();
+        include $template.'static/header'.EXT;
+        include $template.'pages/error_'.$handler.EXT;
+        include $template.'static/footer'.EXT;
+        exit;
+    }
+}
+/*
+ *---------------------------------------------------------------
  * debug_print function
  * @param string $filename
  *---------------------------------------------------------------

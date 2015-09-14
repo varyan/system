@@ -6,7 +6,15 @@ abstract class Database {
     /**
      * @param static $last_id
      * */
-    public $last_id = 0;
+    public $inserted_id = 0;
+    /**
+     *
+     * */
+    public $error = '';
+    /**
+     *
+     * */
+    public $affected_rows;
     /**
      * abstract Database class
      * methods work`s like chain
@@ -50,6 +58,15 @@ abstract class Database {
             $this->charset  = $config['charset'];
             $this->connect();
         }
+    }
+    /**
+     * Magic __get mrthod
+     * */
+    public function __get($name){
+        if(property_exists($this,$name)){
+            return $this->{$name};
+        }
+        return 'The class '.__CLASS__.' dose`nt have '.$name.' property';
     }
     /**
      * Database insert method
@@ -287,4 +304,10 @@ abstract class Database {
      * every child must have this method
      * */
     abstract protected function result();
+    /**
+    * Database num rows abstract method
+    *
+    * every child must have this method
+    * */
+    abstract protected function num_rows();
 }

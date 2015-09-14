@@ -24,7 +24,9 @@ class Lib_PostgreSQL extends Database{
 
         $this->insert = " RETURNING id";
         $this->result = pg_exec($this->connection,$this->query);
-        $this->last_id = $this->result;
+        $this->inserted_id = $this->result;
+        $this->error = pg_errormessage($this->connection);
+        $this->affected_rows = pg_affected_rows($this->result);
 
         $this->select = '';$this->insert = '';$this->update = '';$this->delete = '';$this->create = '';
         $this->from = '';$this->join = '';$this->where = '';$this->group = '';$this->order = '';$this->limit = '';
@@ -38,5 +40,11 @@ class Lib_PostgreSQL extends Database{
             $result[] = ($type == 'object') ? (object)$row : $row;
         }
         return $result;
+    }
+    /**
+     *
+     * */
+    public function num_rows(){
+        return pg_num_rows($this->result);
     }
 }
