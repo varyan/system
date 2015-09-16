@@ -54,7 +54,6 @@ class Rout{
         if(self::by_key() === false){
             self::advanced();
         }
-
         return [
             'controller'    =>self::$controller,
             'method'        =>self::$method,
@@ -76,7 +75,7 @@ class Rout{
                 }
             }
         }else{
-            self::explode_rout(self::$url);
+            self::explode_rout(self::$routes[self::$url]);
             return true;
         }
         return false;

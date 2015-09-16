@@ -15,4 +15,3 @@
         </div><!-- breadcrumb -->
     </div><!-- /main-container -->
 </div>
-<?=microtime(true)?>

@@ -70,9 +70,16 @@ if(!function_exists('assets')){
 if(!function_exists('show_error')){
     function show_error($handler = '404'){
         $template = template();
-        include $template.'static/header'.EXT;
-        include $template.'pages/error_'.$handler.EXT;
-        include $template.'static/footer'.EXT;
+        $header = $template.'static/header'.EXT;
+        $content = $template.'pages/error_'.$handler.EXT;
+        $footer = $template.'static/footer'.EXT;
+        if(file_exists($header) && file_exists($content) && file_exists($footer)){
+            include $header;
+            include $content;
+            include $footer;
+        }else{
+            exit('Error handler views are missing form app/views/error folder and templates/pages folder');
+        }
         exit;
     }
 }
@@ -101,6 +108,6 @@ if(!function_exists('debug_dump')){
         echo "<pre>";
         var_dump($data);
         echo "</pre>";
-        exit;
+        //exit;
     }
 }

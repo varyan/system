@@ -41,8 +41,8 @@ class System{
         }
 
         $controller = new self::$controller;
-        self::checker($controller);
         if (method_exists($controller, self::$method)) {
+            self::checker($controller);
             if((!empty(self::$params))){
                 call_user_func_array(array($controller, self::$method), self::$params);
             }else{
@@ -54,8 +54,8 @@ class System{
     *---------------------------------------------------------------
     * absolute_address method
     * @functionality working with absolute url
-        * this will check is controller exists
-        * is controller method exits
+    * this will check is controller exists
+    * is controller method exits
     *---------------------------------------------------------------
     */
     static private function absolute_address(){
@@ -65,7 +65,16 @@ class System{
                 return false;
             }
             self::$controller = $url_parts[0];
+            $controller = new $url_parts[0];
             self::$method = (isset($url_parts[1]) && trim($url_parts[1]) != '') ? $url_parts[1] : 'index';
+            if(!method_exists($controller,self::$method)){
+                self::$params = [
+                    'controller'=>self::$controller ,
+                    'method'    =>self::$method
+                ];
+                self::$controller = 'error';
+                self::$method = 'method_missed';
+            }
             if(isset($url_parts[2]) && trim($url_parts[2]) != ''){
                 for($i = 2; $i < count($url_parts); $i++){
                     array_push(self::$params,$url_parts[$i]);

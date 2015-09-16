@@ -12,7 +12,6 @@ $route['default_controller'] = 'welcome/page';
  *---------------------------------------------------------------
  */
 $route['(.*)'] = 'welcome/page/$1';
-
 /*
  *---------------------------------------------------------------
  * You cane use callback for routing
