@@ -39,22 +39,15 @@ abstract class Database {
      * Constructor
      *
      * must be parented from child classes
-     * @param boolean/array $config
+     * @param boolean/array $config (default value false)
      * */
     public function __construct($config = false){
 
-        if($config){
-            foreach($config as $key=>$value){
-                $this->$key = $value;
-            }
-        }else {
-
-            $config = get_config('database');
-            foreach($config as $key=>$value){
-                $this->$key = $value;
-            }
-            $this->connect();
+        $db_config = ($config) ? $config : get_config('database');
+        foreach($db_config as $key=>$value){
+            $this->$key = $value;
         }
+        $this->connect();
     }
     /**
      * Magic __get method

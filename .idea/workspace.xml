@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0ac622a-80bc-4620-ab13-2a6720d213e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/pages/error_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.php" afterPath="$PROJECT_DIR$/app/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/controller.php" afterPath="$PROJECT_DIR$/system/controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/libraries/database.php" afterPath="$PROJECT_DIR$/system/libraries/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/error_method.php" afterPath="$PROJECT_DIR$/templates/pages/error_method.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/funcs.php" afterPath="$PROJECT_DIR$/system/funcs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/model.php" afterPath="$PROJECT_DIR$/system/model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/rout.php" afterPath="$PROJECT_DIR$/system/rout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/libraries/session.php" afterPath="$PROJECT_DIR$/system/libraries/session.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/libraries/email.php" afterPath="$PROJECT_DIR$/system/libraries/email.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/welcome.php" afterPath="$PROJECT_DIR$/app/controllers/welcome.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -37,23 +30,43 @@
       <file leaf-file-name="welcome.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/welcome.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153">
-              <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+            <state vertical-scroll-proportion="-2.6153846">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="8" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system/libraries/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35337424">
-              <caret line="195" column="13" selection-start-line="195" selection-start-column="13" selection-end-line="195" selection-end-column="13" />
+            <state vertical-scroll-proportion="22.23077">
+              <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
               <folding>
-                <marker date="1442509943955" expanded="true" signature="2166:2178" placeholder="INSERT INTO ..." />
-                <marker date="1442509943955" expanded="true" signature="3464:3517" placeholder="CREATE TABLE..IF..." />
-                <marker date="1442509943955" expanded="true" signature="4112:4124" placeholder="DELETE FROM ..." />
+                <marker date="1442514449384" expanded="true" signature="2050:2062" placeholder="INSERT INTO ..." />
+                <marker date="1442514449384" expanded="true" signature="3348:3401" placeholder="CREATE TABLE..IF..." />
+                <marker date="1442514449384" expanded="true" signature="3996:4008" placeholder="DELETE FROM ..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="smtp.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/libraries/email/smtp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9615384">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="email.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/system/libraries/email.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.72883433">
+              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,16 +106,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.8846154">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="120" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -155,13 +158,11 @@
         <option value="$PROJECT_DIR$/system/libraries/load.php" />
         <option value="$PROJECT_DIR$/system/libraries/database/sqlite.inc" />
         <option value="$PROJECT_DIR$/system/libraries/database.inc" />
-        <option value="$PROJECT_DIR$/system/libraries/email/smtp.php" />
         <option value="$PROJECT_DIR$/system/libraries/email/pop3.php" />
         <option value="$PROJECT_DIR$/system/start.php" />
         <option value="$PROJECT_DIR$/system/error_ctrl.php" />
         <option value="$PROJECT_DIR$/system/libraries/input.php" />
         <option value="$PROJECT_DIR$/system/libraries/validate.php" />
-        <option value="$PROJECT_DIR$/system/libraries/email.php" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/app/models/Main_model.php" />
         <option value="$PROJECT_DIR$/system/libraries/database/mongo.php" />
@@ -195,9 +196,11 @@
         <option value="$PROJECT_DIR$/templates/pages/error_method.php" />
         <option value="$PROJECT_DIR$/system/model.php" />
         <option value="$PROJECT_DIR$/system/libraries/session.php" />
-        <option value="$PROJECT_DIR$/app/controllers/welcome.php" />
         <option value="$PROJECT_DIR$/app/models/user_model.php" />
+        <option value="$PROJECT_DIR$/app/controllers/welcome.php" />
+        <option value="$PROJECT_DIR$/system/libraries/email/smtp.php" />
         <option value="$PROJECT_DIR$/system/libraries/database.php" />
+        <option value="$PROJECT_DIR$/system/libraries/email.php" />
       </list>
     </option>
   </component>
@@ -302,6 +305,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="email" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -486,13 +511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system/libraries/email/smtp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/libraries/email/pop3.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -517,13 +535,6 @@
     <entry file="file://$PROJECT_DIR$/system/libraries/validate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.020807834">
-          <caret line="1" column="63" selection-start-line="1" selection-start-column="63" selection-end-line="1" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/libraries/email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
           <caret line="1" column="63" selection-start-line="1" selection-start-column="63" selection-end-line="1" selection-end-column="63" />
         </state>
       </provider>
@@ -567,20 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4381885">
           <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/libraries/database/mysqli.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6034272">
-          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/libraries/database/mysql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37698898">
-          <caret line="61" column="70" selection-start-line="61" selection-start-column="70" selection-end-line="61" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -800,14 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/welcome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153">
-          <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-22.846153">
@@ -815,6 +804,22 @@
           <folding>
             <element signature="n#library#0;n#Model#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/libraries/database/mysqli.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.604908">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/libraries/database/mysql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72883433">
+          <caret line="61" column="70" selection-start-line="61" selection-start-column="70" selection-end-line="61" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -826,15 +831,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/system/libraries/email/smtp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/welcome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system/libraries/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35337424">
-          <caret line="195" column="13" selection-start-line="195" selection-start-column="13" selection-end-line="195" selection-end-column="13" />
+        <state vertical-scroll-proportion="22.23077">
+          <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
           <folding>
-            <marker date="1442509943955" expanded="true" signature="2166:2178" placeholder="INSERT INTO ..." />
-            <marker date="1442509943955" expanded="true" signature="3464:3517" placeholder="CREATE TABLE..IF..." />
-            <marker date="1442509943955" expanded="true" signature="4112:4124" placeholder="DELETE FROM ..." />
+            <marker date="1442514449384" expanded="true" signature="2050:2062" placeholder="INSERT INTO ..." />
+            <marker date="1442514449384" expanded="true" signature="3348:3401" placeholder="CREATE TABLE..IF..." />
+            <marker date="1442514449384" expanded="true" signature="3996:4008" placeholder="DELETE FROM ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/libraries/email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72883433">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
