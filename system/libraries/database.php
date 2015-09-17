@@ -39,6 +39,7 @@ abstract class Database {
      * Constructor
      *
      * must be parented from child classes
+     * @param boolean/array $config
      * */
     public function __construct($config = false){
 
@@ -49,18 +50,16 @@ abstract class Database {
         }else {
 
             $config = get_config('database');
-            $this->drive    = $config['drive'];
-            $this->host     = $config['host'];
-            $this->port     = $config['port'];
-            $this->user     = $config['user'];
-            $this->pass     = $config['pass'];
-            $this->name     = $config['name'];
-            $this->charset  = $config['charset'];
+            foreach($config as $key=>$value){
+                $this->$key = $value;
+            }
             $this->connect();
         }
     }
     /**
-     * Magic __get mrthod
+     * Magic __get method
+     * @param string $name
+     * @return Object property
      * */
     public function __get($name){
         if(property_exists($this,$name)){
@@ -161,6 +160,8 @@ abstract class Database {
     public function from($table){
         $this->table = $this->escape($table);
         $this->from .= " FROM ".$this->table." ";
+        if(!Session::get('table'))
+            Session::set('table',$this->table);
         return $this;
     }
     /**
@@ -188,11 +189,12 @@ abstract class Database {
      * Database join method
      *
      * @param string $table
-     * @param string $side
      * @param string(as query join after ON keyword) or array(as tb1.row=>tb2.row without tables and dot only row) $string_or_array
+     * @param string $side
      * @return object Database
      * */
     public function join($table,$string_or_array,$side = 'left'){
+        $this->table = Session::get('table');
         $this->join .= ucfirst($this->escape($side)) . " JOIN " . $this->escape($table) . " ON ";
         if(is_string($string_or_array)) {
             $this->join .= $this->escape($string_or_array) . " ";
@@ -230,7 +232,7 @@ abstract class Database {
         if($value_if_row != null){
             $this->order .= $this->escape($row_or_array)." ".$this->escape($value_if_row);
         }else{$i = 0;
-            foreach($row_or_array as $row=>$value){$i++;
+            foreach($row_or_array as $row => $value){$i++;
                 $this->order .= $this->escape($row)." ".$this->escape($value);
                 if($i < count($row_or_array))
                     $this->order .= ",";
@@ -281,7 +283,6 @@ abstract class Database {
                 }
                 break;
             case "sql":
-
                 break;
         }
         return $data;

@@ -7,11 +7,7 @@ class Rout{
     * string $url variable
     *---------------------------------------------------------------
     */
-    private static $rout_types = [
-        '(.*)'=>'/^[A-Za-z0-9_\.\-\+\?\/=]/',
-        '(.n)'=>'/^[0-9]/',
-        '(.s)'=>'/^[a-zA-Z0-9]/',
-    ];
+    private static $rout_types;
     /*
     *---------------------------------------------------------------
     * array $routes variable
@@ -86,6 +82,7 @@ class Rout{
     *---------------------------------------------------------------
     */
     static private function advanced(){
+        self::$rout_types = get_config_item('route_types');
         $url_parts = explode('/',self::$url);
         foreach(self::$routes as $key => $value){
             $key_parts = explode('/',$key);

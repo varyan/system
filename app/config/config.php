@@ -16,6 +16,17 @@ $config['base_url'] = 'http://localhost/system/';
 $config['template'] = 'templates/';
 /*
  *---------------------------------------------------------------
+ * set route allowed types
+ * you can add as many types as you wish
+ *---------------------------------------------------------------
+ */
+$config['route_types'] = array(
+    '(.*)'=>'/^[A-Za-z0-9_\.\-\+\?\/=]/',
+    '(.n)'=>'/^[0-9]/',
+    '(.s)'=>'/^[a-zA-Z0-9]/',
+);
+/*
+ *---------------------------------------------------------------
  * set style path
  * you cane change this with your styles folder
  *---------------------------------------------------------------

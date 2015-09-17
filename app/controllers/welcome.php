@@ -9,6 +9,7 @@ class Welcome extends Controller{
      */
     public function __construct(){
         parent::__construct();
+        $this->model('user_model');
     }
     /*
      *---------------------------------------------------------------
@@ -22,6 +23,7 @@ class Welcome extends Controller{
             show_error();
         }
 
+        debug_print($this->user_model->get_join('user_info'));
         $this->args['title'] = 'Welcome';
 
         $this->view('includes/header',$this->args);

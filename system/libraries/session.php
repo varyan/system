@@ -83,8 +83,8 @@ class Session
      * @param mixed $value
      * @return boolean
      */
-    static public function set($key_or_keys, $value = null){
-        if($value != null) {
+    static public function set($key_or_keys, $value = false){
+        if($value !== false) {
             $_SESSION[$key_or_keys] = $value;
         }else{
             if(!is_array($key_or_keys))

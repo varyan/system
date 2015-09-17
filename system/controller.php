@@ -70,6 +70,9 @@ class Controller{
     *---------------------------------------------------------------
     */
     protected function model($file,$args = []){
+        if(!file_exists(APP_PATH.'models/'.$file.EXT)){
+            show_error('model','The model <b>'.ucfirst($file)."</b> dose`nt exist in app/models folder");
+        }
         $this->{$file} = new $file($args);
     }
     /*

@@ -66,6 +66,9 @@ class Model{
                                 ->delete($this->table);
         return ($query->affected_rows > 0) ? true : false;
     }
+    public function get_table(){
+        return $this->table;
+    }
     /*
     *---------------------------------------------------------------
     * __library method

@@ -23,6 +23,17 @@ if(!function_exists('__autoload')){
 }
 /*
  *---------------------------------------------------------------
+ * location function
+ * @param string $url
+ *---------------------------------------------------------------
+ */
+if(!function_exists('location')){
+    function location($url,$args = []){
+        header("Location: ".$url);
+    }
+}
+/*
+ *---------------------------------------------------------------
  * get_config function
  * @param string $filename
  *---------------------------------------------------------------
@@ -36,6 +47,29 @@ if(!function_exists('get_config')){
             return $config;
         }else{
             exit("Configuration file ".$filename." dose`nt exists in your <b>".APP_PATH."config</b> folder");
+        }
+    }
+}
+/*
+ *---------------------------------------------------------------
+ * get_config_item function
+ * @param string $key
+ *---------------------------------------------------------------
+ */
+if(!function_exists('get_config_item')){
+    function &get_config_item($key){
+        $file = APP_PATH.'config/config'.EXT;
+        if(file_exists($file)){
+            require $file; $name = explode('.','config')[0];
+            $config = $$name;
+            if(array_key_exists($key,$config)){
+                $item = $config[$key];
+                return $item;
+            }else{
+                exit("Configuration file config dose`nt have ".$key." item");
+            }
+        }else{
+            exit("Configuration file config dose`nt exists in your <b>".APP_PATH." config </b> folder");
         }
     }
 }
@@ -68,7 +102,7 @@ if(!function_exists('assets')){
  *---------------------------------------------------------------
  */
 if(!function_exists('show_error')){
-    function show_error($handler = '404'){
+    function &show_error($handler = '404',$message = ''){
         $template = template();
         $header = $template.'static/header'.EXT;
         $content = $template.'pages/error_'.$handler.EXT;
@@ -108,6 +142,6 @@ if(!function_exists('debug_dump')){
         echo "<pre>";
         var_dump($data);
         echo "</pre>";
-        //exit;
+        exit;
     }
 }
