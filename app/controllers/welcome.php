@@ -16,7 +16,7 @@ class Welcome extends Controller{
      * @param string $page (default value 'index')
      *---------------------------------------------------------------
      */
-    public function page($page = 'index'){
+    public function page($page = 'index',$op_str = '',$op_num = 0){
 
         if(!file_exists(VIEW_PATH.'pages/'.$page.EXT)){
             show_error();

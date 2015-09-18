@@ -9,8 +9,11 @@
     <div id="main-container">
         <div id="breadcrumb">
             <ul class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="index.html"> Home</a></li>
+                <li><i class="fa fa-home"></i><a data-url="404"> Home</a></li>
                 <li class="active">Blank page</li>
+                <div id="content" class="col-md-12">
+
+                </div>
             </ul>
         </div><!-- breadcrumb -->
     </div><!-- /main-container -->

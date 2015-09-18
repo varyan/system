@@ -84,6 +84,12 @@ class System{
         }
         return false;
     }
+    /*
+    *---------------------------------------------------------------
+    * checker method
+    * @functionality check class method parameters
+    *---------------------------------------------------------------
+    */
     static private function checker($controller){
         $object = new ReflectionClass($controller);
         $method = $object->getMethod(self::$method);
@@ -92,7 +98,7 @@ class System{
             for($i = 0; $i < count($params); $i++){
                 if(!$params[$i]->isDefaultValueAvailable()){
                     if(!isset(self::$params[$params[0]->getPosition()])){
-                        exit('<span style="color:darkred;"> '.ucfirst(self::$controller).' controller </span><span style="color:darkorange;">'.self::$method.' method</span> <span style="color:darkgreen">'.$params[$i]->getName().' parameter</span> dose`nt have default value');
+                        exit('<b> '.ucfirst(self::$controller).' controller </b><b>'.self::$method.' method</b> <b>'.$params[$i]->getName().' parameter</b> dose`nt have default value');
                     }
                 }
             }

@@ -11,7 +11,7 @@ $route['default_controller'] = 'welcome/page';
  * default_controller rout will send any single value of url to the welcome controller page method
  *---------------------------------------------------------------
  */
-$route['(.*)'] = 'welcome/page/$1';
+$route['(*)']           = 'welcome/page/$1';
 /*
  *---------------------------------------------------------------
  * You cane use callback for routing
